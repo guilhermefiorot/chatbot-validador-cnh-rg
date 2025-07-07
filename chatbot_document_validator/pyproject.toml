@@ -1,0 +1,29 @@
+[project]
+name = "chatbot-document-validator"
+version = "0.1.0"
+description = "Chatbot para validação de documentos (CNH/RG) usando Mindee e Groq"
+authors = [
+    {name = "guilhermefiorot",email = "guilhermefirme3@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13,<4"
+dependencies = [
+    "streamlit>=1.28.0",
+    "groq>=0.4.0",
+    "requests>=2.31.0",
+    "python-doctr>=0.7.0",
+    "Pillow>=10.0.0",
+    "pandas>=2.0.0",
+    "python-multipart>=0.0.6",
+    "pydantic>=2.0.0",
+    "python-dateutil>=2.8.0",
+    "validate-docbr (==1.11.1)"
+]
+
+[tool.poetry]
+packages = [{include = "chatbot_document_validator", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
