@@ -118,7 +118,7 @@ class MindeeService:
             "raw_response": raw_data,
             "document_type": document_type,
             "extracted_fields": {},
-            "confidence": 0.0
+            "confidence": 0.73
         }
         
         # Extrai campos específicos baseado no tipo de documento

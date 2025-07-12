@@ -33,17 +33,12 @@ fi
 echo "📚 Instalando dependências com Poetry..."
 poetry install
 
-# Instala o projeto em modo desenvolvimento
-echo "🔧 Instalando projeto em modo desenvolvimento..."
-poetry install -e .
-
 echo ""
 echo "✅ Instalação concluída!"
 echo ""
 echo "🚀 Para executar a aplicação:"
-echo "1. Execute: poetry run python run_app.py"
-echo "2. Ou ative o shell: poetry shell"
-echo "   E depois: python run_app.py"
+echo "1. Execute: poetry shell"
+echo "2. Execute: streamlit run run_app.py"
 echo ""
 echo "📋 Próximos passos:"
 echo "1. Configure suas API Keys do Mindee e Groq"

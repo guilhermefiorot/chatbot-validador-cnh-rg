@@ -1,6 +1,6 @@
-# 🤖 Chatbot Validador de Documentos
+# 🤖 Validador de Documentos
 
-Um chatbot inteligente para validação de documentos brasileiros (CNH e RG) usando **Mindee** para extração de dados e **Groq LLM** para validação inteligente.
+Um validador inteligente para documentos brasileiros (CNH e RG) usando **Mindee** para extração de dados e **Groq LLM** para validação inteligente.
 
 ## 🚀 Funcionalidades
 
@@ -57,50 +57,14 @@ Este projeto usa **Poetry** para gerenciamento de dependências. Comandos úteis
 # Instalar dependências
 poetry install
 
-# Adicionar nova dependência
-poetry add nome-do-pacote
-
-# Adicionar dependência de desenvolvimento
-poetry add --group dev nome-do-pacote
-
 # Atualizar dependências
 poetry update
 
 # Ver dependências instaladas
 poetry show
 
-# Executar comando no ambiente virtual
-poetry run python script.py
-
 # Ativar shell do Poetry
 poetry shell
-```
-
-### 🛠️ Comandos Rápidos (Makefile)
-
-Para facilitar o desenvolvimento, use o Makefile:
-
-```bash
-# Ver todos os comandos disponíveis
-make help
-
-# Instalar dependências
-make install-dev
-
-# Executar aplicação
-make run
-
-# Executar testes
-make test
-
-# Executar testes com cobertura
-make test-cov
-
-# Limpar arquivos temporários
-make clean
-
-# Verificar ambiente
-make check-env
 ```
 
 ## 🚀 Como usar
@@ -111,15 +75,9 @@ make check-env
 # Opção 1: Usando Streamlit diretamente (RECOMENDADO)
 poetry run streamlit run src/chatbot_document_validator/app.py
 
-# Opção 2: Usando Makefile
-make run
-
-# Opção 3: Usando script wrapper
-poetry run python run_app.py
-
 # Opção 4: Ativando o shell do Poetry
 poetry shell
-streamlit run src/chatbot_document_validator/app.py
+streamlit run run_app.py
 ```
 
 ### Configuração
@@ -140,7 +98,6 @@ streamlit run src/chatbot_document_validator/app.py
 2. **Clique em "Processar Documento"**
 3. **Aguarde** o processamento (extração + validação)
 4. **Visualize** os resultados detalhados
-5. **Baixe** o resultado em JSON se necessário
 
 ## 📊 Resultados
 
@@ -212,79 +169,6 @@ chatbot_document_validator/
 ├── pyproject.toml                     # Dependências
 ├── run_app.py                         # Script de execução
 └── README.md                          # Este arquivo
-```
-
-## 🔧 Configuração Avançada
-
-### Modelos do Mindee
-Você pode configurar diferentes modelos para diferentes tipos de documento:
-
-```python
-# Em mindee_service.py
-self.model_ids = {
-    "cnh": "seu_modelo_cnh",
-    "rg": "seu_modelo_rg"
-}
-```
-
-### Modelos do Groq
-Configure diferentes modelos LLM:
-
-```python
-# Em validation_service.py
-self.model = "llama3-8b-8192"  # ou outro modelo
-```
-
-### Prompts Personalizados
-Você pode personalizar os prompts de validação editando os métodos:
-- `_create_cnh_validation_prompt()`
-- `_create_rg_validation_prompt()`
-
-## 🧪 Testes
-
-```bash
-# Executar testes
-poetry run pytest tests/
-
-# Com cobertura
-poetry run pytest --cov=src/chatbot_document_validator tests/
-
-# Executar testes específicos
-poetry run pytest tests/test_mindee_mapping.py
-```
-
-## 📝 Exemplo de Uso
-
-```python
-from chatbot_document_validator.services.document_processor import DocumentProcessor
-
-# Inicializar processador
-processor = DocumentProcessor(
-    mindee_api_key="sua_mindee_key",
-    groq_api_key="sua_groq_key"
-)
-
-# Processar documento
-result = processor.process_document(
-    file_path="documento.pdf",
-    document_type="cnh",
-    auto_detect=True
-)
-
-# Verificar resultado
-print(f"Status: {result.overall_status}")
-print(f"Válido: {result.validation_result.is_valid}")
-print(f"Erros: {result.all_errors}")
-```
-
-### Executar exemplo
-
-```bash
-# Executar exemplo básico
-poetry run python examples/basic_usage.py
-
-# Executar com dados de exemplo
-poetry run python examples/sample_data.py
 ```
 
 ## 🤝 Contribuição
