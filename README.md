@@ -2,6 +2,13 @@
 
 Um validador inteligente para documentos brasileiros (CNH e RG) usando **Mindee** para extração de dados e **Groq LLM** para validação inteligente.
 
+Alunos:
+   Guilherme Firme
+   Hanna Leticia
+   Victor Emerson
+   Ruan Rody
+   Lucas Codeco
+
 ## 🚀 Funcionalidades
 
 - **Extração de dados**: Usa Mindee para extrair informações de CNH e RG
